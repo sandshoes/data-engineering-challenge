@@ -1,5 +1,10 @@
 # Amenitiz © Data Engineer challenge 1
 
+# Explanation of my approach
+There are a few things I've done that may escape the expected way of doing things, especially when it comes to API requests.
+1. Didn't save the API results in a source json file to then process it. The repo makes an API call to fetch information every time. This could be easily changed.
+2. I have built a UDF to call the API for details. If records where long it could be pretty expensive but in this case it was not.
+3. I didn't use advanced Spark as I had not cluster available so didn't take advantage of RDD and lazy processing of tasks. 
 
 # Instructions
 Hello :wave: dear candidate. We are glad you get this far in your journey of becoming part of Amenitiz as a Data Engineer.

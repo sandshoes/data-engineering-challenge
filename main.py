@@ -13,7 +13,6 @@ from pyspark.sql.functions import col
 
 def run():
     spark = SparkSession.builder.appName("amenitizTest").getOrCreate()
-    # sc = SparkContext.getOrCreate(SparkConf().setMaster("local[*]"))
     
     df = data_loader(spark)
     df_simplified = simplify_dataframe(df)
