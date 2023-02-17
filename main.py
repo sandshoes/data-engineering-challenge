@@ -1,4 +1,3 @@
-from pyspark import SparkContext, SparkConf
 from pyspark.sql import SparkSession
 from src.etl.transformers import (
     simplify_dataframe,
@@ -9,11 +8,10 @@ from src.etl.transformers import (
 )
 from src.etl.data_loaders import data_loader, load_details_data
 
-from pyspark.sql.functions import col
 
 def run():
     spark = SparkSession.builder.appName("amenitizTest").getOrCreate()
-    
+
     df = data_loader(spark)
     df_simplified = simplify_dataframe(df)
 

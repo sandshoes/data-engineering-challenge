@@ -10,7 +10,7 @@ from pyspark.sql.types import (
     DecimalType,
 )
 
-API_KEY = '<YOUR_API_KEY>'
+API_KEY = "<YOUR_API_KEY>"
 LANGUAGE = "en"
 LON_LIST = [2.028471, 2.113615, 2.198759, 2.283903]
 LAT_LIST = [41.315758, 41.383763, 41.451768]
@@ -60,6 +60,7 @@ def fetch_initial_data():
 def data_loader(spark):
     json_data = fetch_initial_data()
     return spark.createDataFrame(json_data, schema=schema)
+
 
 def load_details_data(df):
     return df.select("xid").withColumn("result", udf_execute_rest_api(col("xid")))

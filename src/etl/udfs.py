@@ -1,8 +1,14 @@
 from pyspark.sql.functions import udf
-from pyspark.sql.types import IntegerType, StructType, StructField, StringType, DecimalType
+from pyspark.sql.types import (
+    IntegerType,
+    StructType,
+    StructField,
+    StringType,
+    DecimalType,
+)
 import requests
 
-API_KEY = '<YOUR_API_KEY>'
+API_KEY = "<YOUR_API_KEY>"
 LANGUAGE = "en"
 
 details_schema = StructType(
