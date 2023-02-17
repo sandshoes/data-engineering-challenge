@@ -6,6 +6,7 @@ There are a few things I've done that may escape the expected way of doing thing
 2. I have built a UDF to call the API for details. If records where long it could be pretty expensive but in this case it was not.
 3. I didn't use advanced Spark as I had not cluster available so didn't take advantage of RDD and lazy processing of tasks. 
 4. Was pretty dumb and added my API_KEY in a previous commit. Cannot cancel it and request a new one so I will close my account once the process has been reviewed.
+5. 
 
 
 # Instructions
