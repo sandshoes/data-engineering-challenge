@@ -4,7 +4,6 @@ from pyspark.sql.types import (
     StructType,
     StructField,
     StringType,
-    DecimalType,
 )
 import requests
 

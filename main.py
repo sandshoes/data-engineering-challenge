@@ -23,7 +23,6 @@ def run():
     df_details = get_details_info_dataframe(details_data_df)
 
     df_enriched = enrich_df_details(df_kinds_counted, df_details)
-
     df_enriched.write.csv("data/places_output.csv", header=True)
 
     spark.stop()

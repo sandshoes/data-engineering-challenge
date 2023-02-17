@@ -1,3 +1,4 @@
+from decimal import Decimal
 import requests
 from pyspark.sql.functions import col
 from src.etl.udfs import udf_execute_rest_api
@@ -6,7 +7,6 @@ from pyspark.sql.types import (
     StructType,
     StructField,
     StringType,
-    FloatType,
     DecimalType,
 )
 
@@ -29,8 +29,8 @@ schema = StructType(
             "point",
             StructType(
                 [
-                    StructField("lat", FloatType(), True),
-                    StructField("lon", FloatType(), True),
+                    StructField("lat", DecimalType(18, 16), True),
+                    StructField("lon", DecimalType(17, 16), True),
                 ]
             ),
             True,
@@ -53,7 +53,13 @@ def fetch_initial_data():
             headers = {"Content-Type": "application/json; charset=UTF-8"}
             data = requests.get(api_url, headers=headers)
             if len(data.json()) > 0:
-                json_data += data.json()
+                processed_data = []
+                for record in data.json():
+                    # processing as decimal to avoid precision loss
+                    record["point"]["lat"] = Decimal(record["point"]["lat"])
+                    record["point"]["lon"] = Decimal(record["point"]["lon"])
+                    processed_data.append(record)
+                json_data += processed_data
     return json_data
 
 
