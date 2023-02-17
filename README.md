@@ -5,6 +5,8 @@ There are a few things I've done that may escape the expected way of doing thing
 1. Didn't save the API results in a source json file to then process it. The repo makes an API call to fetch information every time. This could be easily changed.
 2. I have built a UDF to call the API for details. If records where long it could be pretty expensive but in this case it was not.
 3. I didn't use advanced Spark as I had not cluster available so didn't take advantage of RDD and lazy processing of tasks. 
+4. Was pretty dumb and added my API_KEY in a previous commit. Cannot cancel it and request a new one so I will close my account once the process has been reviewed.
+
 
 # Instructions
 Hello :wave: dear candidate. We are glad you get this far in your journey of becoming part of Amenitiz as a Data Engineer.

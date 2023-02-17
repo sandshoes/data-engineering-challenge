@@ -2,7 +2,7 @@ from pyspark.sql.functions import udf
 from pyspark.sql.types import IntegerType, StructType, StructField, StringType, DecimalType
 import requests
 
-API_KEY = '5ae2e3f221c38a28845f05b6870f119cd2582d880396d265508a42cc'
+API_KEY = '<YOUR_API_KEY>'
 LANGUAGE = "en"
 
 details_schema = StructType(
